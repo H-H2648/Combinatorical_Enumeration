@@ -3,6 +3,8 @@ from scipy.special import comb
 #Tree is of the form [0, Tree1, Tree2]
 #where 0 represents a node, tree1, tree2 is the root node of the node 0
 
+
+#TO DO LIST: DRAW THE TREE
 def genEpsilon(n):
     if n > 1:
         return None
@@ -27,7 +29,7 @@ def genTree(n):
         range_so_far += (num_tree(kk)*num_tree(n - kk - 1))/(num_tree_n)
     return ("Node", genTree(kk), genTree(n - kk - 1))
 
-tree = genTree(10)
+tree = genTree(100)
 print(tree)
 print(tree[0])
 print(tree[1])
