@@ -1,5 +1,8 @@
 
 import random
+import time
+from collections import defaultdict
+
 def binary0(v):
     return "0"
 
@@ -63,6 +66,23 @@ def main(v):
     FINAL = generateAdd(eps_genF, atom_genF, binaryEmpty, binary0, v)
     return SEQ_1 + MAIN_BLOCKS + FINAL
 
+# print("\\begin{itemize}")
+# for _ in range(10):
+#     print (f"\\item {main(0.6)}")
+#     print("\n")
+# print("\\end{itemize}")
 
-print(main(0.6))
+t_end = time.time() + 60 
+dict = defaultdict(int)
+while time.time() < t_end:
+    dict[len(main(0.6))] +=1
+
+total_count = 0
+total_length = 0
+for length in dict:
+    total_length += dict[length]*length
+    total_count += dict[length]
+print(total_length/total_count)
+    
+
 
